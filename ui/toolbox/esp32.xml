@@ -1829,8 +1829,28 @@ _
 
       </category>
       <category name="I2C">
-      <label text="I2c"></label>
+      <label text="I2C"></label>
 <block type="machine.I2C_I2C.init">
+  <value name="I2C_ID">
+    <shadow type="math_number">
+      <field name="NUM">0</field>
+    </shadow>
+  </value>
+  <value name="scl_pin">
+    <shadow type="math_number">
+      <field name="NUM">22</field>
+    </shadow>
+  </value>
+  <value name="sda_pin">
+    <shadow type="math_number">
+      <field name="NUM">21</field>
+    </shadow>
+  </value>
+  <value name="I2C_frequency">
+    <shadow type="math_number">
+      <field name="NUM">400000</field>
+    </shadow>
+  </value>
 </block>
 <block type="machine.I2C_I2C.deinit">
 </block>
