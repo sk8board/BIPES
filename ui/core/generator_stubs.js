@@ -2196,11 +2196,27 @@ Blockly.Python["machine.ADCWiPy_adcchannel.deinit"] = function(block) {
 	var code = "machine.ADCWiPy.adcchannel.deinit()\n"; 
 	return code;
 };
+/*
 Blockly.Python["machine.I2C_I2C.init"] = function(block) {
 		var value_pIn = Blockly.Python.valueToCode(block, 'pIn', Blockly.Python.ORDER_ATOMIC);
 	var code = "machine.I2C.I2C.init(" + value_pIn + ")\n"; 
 	return code;
 };
+*/
+
+Blockly.Python["machine.I2C_I2C.init"] = function(block) {
+	var I2C_ID = Blockly.Python.valueToCode(block, 'I2C_ID', Blockly.Python.ORDER_ATOMIC);
+	var sda_pin = Blockly.Python.valueToCode(block, 'sda_pin', Blockly.Python.ORDER_ATOMIC);
+	var scl_pin = Blockly.Python.valueToCode(block, 'scl_pin', Blockly.Python.ORDER_ATOMIC);
+	var I2C_frequency = Blockly.Python.valueToCode(block, 'I2C_frequency', Blockly.Python.ORDER_ATOMIC);
+	// TODO: Assemble python into code variable.
+	Blockly.Python.definitions_['import_I2C_Pin'] = 'from machine import I2C, Pin';
+	var code = `
+i2c_pins = I2C(` + I2C_ID + `, scl=Pin(` + scl_pin + `), sda=Pin(` + sda_pin + `), freq=` + I2C_frequency + `)
+	`;
+	return code;
+  };
+
 Blockly.Python["machine.I2C_I2C.deinit"] = function(block) {
 		Blockly.Python.definitions_['import_machine.I2C'] = 'import machine.I2C';
 	var code = "machine.I2C.I2C.deinit()\n"; 

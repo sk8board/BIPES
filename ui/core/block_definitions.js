@@ -5475,7 +5475,7 @@ Blockly.Blocks["machine.ADCWiPy_adcchannel.deinit"] = {
 };
 
 
-
+/*
 Blockly.Blocks["machine.I2C_I2C.init"] = {
   init: function() {
   this.appendValueInput("pIn")
@@ -5487,7 +5487,36 @@ Blockly.Blocks["machine.I2C_I2C.init"] = {
  this.setHelpUrl("https://docs.micropython.org/en/latest/library/machine.I2C.html");
   }
 };
+*/
 
+Blockly.Blocks["machine.I2C_I2C.init"] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("I2C Init");
+    this.appendValueInput("I2C_ID")
+        .setCheck("Number")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("I2C ID");
+    this.appendValueInput("sda_pin")
+        .setCheck("Number")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("SDA Pin");
+    this.appendValueInput("scl_pin")
+        .setCheck("Number")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("SCL Pin");
+    this.appendValueInput("I2C_frequency")
+        .setCheck("Number")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("I2C Frequency");
+    this.setInputsInline(false);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(0);
+ this.setTooltip("");
+ this.setHelpUrl("https://docs.micropython.org/en/latest/library/machine.I2C.html#machine-i2c");
+  }
+};
 
 
 Blockly.Blocks["machine.I2C_I2C.deinit"] = {
